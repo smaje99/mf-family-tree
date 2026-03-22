@@ -1,0 +1,1331 @@
+{
+  "schema_name": "gramps_inspired_family_tree_extraction",
+  "schema_version": "0.1",
+  "based_on": {
+    "software": "Gramps",
+    "notes": [
+      "Modelo inspirado en objetos y pestañas de Gramps: personas, familias, eventos, notas, fuentes, citas, lugares y medios.",
+      "No es un export oficial de Gramps ni GEDCOM; es un JSON intermedio para captura/verificación manual."
+    ]
+  },
+  "extraction_metadata": {
+    "language": "es",
+    "source_type": "handwritten_family_tree_photo",
+    "source_title_visible": "Árbol genealógico de la familia Franco Cardona",
+    "extraction_method": "manual_visual_transcription_from_uploaded_image",
+    "global_quality": "mixed",
+    "confidence_scale": {
+      "high": "lectura muy probable",
+      "medium": "lectura plausible con dudas menores",
+      "low": "lectura incierta o parcialmente ilegible"
+    },
+    "warnings": [
+      "Varios nombres, fechas y parentescos son difíciles de leer.",
+      "Se conservan textos dudosos con marcadores como [ilegible], [probable] o [dudoso].",
+      "No se infiere información no visible salvo cuando la estructura del árbol hace muy probable una relación."
+    ]
+  },
+  "sources": [
+    {
+      "id": "S001",
+      "title": "Árbol genealógico manuscrito de la familia Franco Cardona",
+      "author": "Sergio Majé",
+      "abbreviation": "Árbol Franco-Cardona manuscrito",
+      "publication_info": "Fotografía de hoja manuscrita aportada por el usuario",
+      "repository_refs": [],
+      "attributes": [
+        {
+          "key": "tipo",
+          "value": "documento manuscrito"
+        },
+        {
+          "key": "soporte",
+          "value": "fotografía digital"
+        },
+        {
+          "key": "estado_lectura",
+          "value": "parcialmente legible"
+        }
+      ],
+      "notes": [
+        "Fuente única de esta extracción preliminar."
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "id": "C001",
+      "source_id": "S001",
+      "page": "[sin paginación]",
+      "confidence": "high",
+      "notes": [
+        "Cita genérica para todas las afirmaciones extraídas de la imagen."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "M001",
+      "title": "Foto del árbol genealógico manuscrito",
+      "file_hint": "imagen subida por el usuario",
+      "mime_type": "image/png",
+      "citations": [
+        "C001"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "PL001",
+      "name": "Dovio - Valle",
+      "type": "place",
+      "confidence": "low",
+      "notes": [
+        "Texto visible junto a una línea de pareja o familia; puede ser lugar, apunte contextual o algo distinto."
+      ],
+      "citations": [
+        "C001"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "N001",
+      "type": "general",
+      "text": "En la esquina superior izquierda parece decir: '9 hijos primeras nupcias'.",
+      "confidence": "medium",
+      "citations": [
+        "C001"
+      ]
+    },
+    {
+      "id": "N002",
+      "type": "general",
+      "text": "Aparece la anotación 'infante murió' en la rama superior Franco.",
+      "confidence": "high",
+      "citations": [
+        "C001"
+      ]
+    },
+    {
+      "id": "N003",
+      "type": "general",
+      "text": "Se observan varias anotaciones de bebés fallecidos o no identificados en la rama Cardona/Montes.",
+      "confidence": "high",
+      "citations": [
+        "C001"
+      ]
+    }
+  ],
+  "persons": [
+    {
+      "id": "P001",
+      "gramps_id": "I0001",
+      "primary_name": {
+        "given": "Jesús María",
+        "surname": "Franco",
+        "display": "Jesús María Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "addresses": [],
+      "urls": [],
+      "notes": ["Anotación superior: '9 hijos primeras nupcias'."],
+      "media_refs": ["M001"],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P002",
+      "gramps_id": "I0002",
+      "primary_name": {
+        "given": "Clara Isabel",
+        "surname": "Franco",
+        "display": "Clara Isabel Franco"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P003",
+      "gramps_id": "I0003",
+      "primary_name": {
+        "given": "Luis",
+        "surname": "Franco",
+        "display": "Luis Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [
+        {
+          "type": "texto_visible",
+          "value": "s/c [dudoso]"
+        },
+        {
+          "type": "texto_visible",
+          "value": "casado [muy dudoso]"
+        }
+      ],
+      "notes": ["No se sabe de de cual matrimonio es."],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P004",
+      "gramps_id": "I0004",
+      "primary_name": {
+        "given": "Alfredo",
+        "surname": "Franco",
+        "display": "Alfredo Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P005",
+      "gramps_id": "I0005",
+      "primary_name": {
+        "given": "Mariano",
+        "surname": "Franco",
+        "display": "Mariano Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P006",
+      "gramps_id": "I0006",
+      "primary_name": {
+        "given": "Marina",
+        "surname": "Franco",
+        "display": "Marina Franco"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P007",
+      "gramps_id": "I0007",
+      "primary_name": {
+        "given": "Adán",
+        "surname": "Franco",
+        "display": "Adán Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P008",
+      "gramps_id": "I0008",
+      "primary_name": {
+        "given": "Alfonso",
+        "surname": "Franco",
+        "alias": "Moncho",
+        "display": "Alfonso (Moncho) Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P009",
+      "gramps_id": "I0009",
+      "primary_name": {
+        "given": "Gerardo Antonio",
+        "surname": "Franco",
+        "alias": "Patiancho",
+        "display": "Gerardo Antonio (Patiancho) Franco"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "22/07/1944"
+        },
+        {
+          "type": "Death",
+          "date": "30/03/1991"
+        }
+      ],
+      "attributes": [],
+      "notes": [
+        "Apellido del padre: Idárraga",
+        "Nació en Versalles (Valle de Cauca) y murió en Rionegro (Caquetá)."
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P010",
+      "gramps_id": "I0010",
+      "primary_name": {
+        "given": "Amparo",
+        "surname": "Franco",
+        "display": "Amparo Franco"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Hija del matrimonio de Gerardo Antonio Franco y Miriam (matrimonio obligado)"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P011",
+      "gramps_id": "I0011",
+      "primary_name": {
+        "given": "Clímaco",
+        "surname": "Zapata",
+        "display": "Clímaco Zapata"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P012",
+      "gramps_id": "I0012",
+      "primary_name": {
+        "given": "Juan",
+        "surname": "Zapata",
+        "display": "Juan Zapata"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P013",
+      "gramps_id": "I0013",
+      "primary_name": {
+        "given": "Paula",
+        "surname": "Zapata",
+        "display": "Paula Zapata"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P014",
+      "gramps_id": "I0014",
+      "primary_name": {
+        "given": "Julia Rosa",
+        "surname": "Zapata",
+        "display": "Julia Rosa Zapata"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P015",
+      "gramps_id": "I0015",
+      "primary_name": {
+        "given": "Ignacio Antonio",
+        "surname": "Cardona Zapata",
+        "display": "Ignacio Antonio Cardona Zapata"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "1909"
+        },
+        {
+          "type": "Death",
+          "date": "31/01/1991"
+        }
+      ],
+      "attributes": [],
+      "notes": [
+        "Tuvo más hijos fuera del matrimonio con Alejandrina Montes Zapata, pero no se conoce su identidad."
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P016",
+      "gramps_id": "I0016",
+      "primary_name": {
+        "given": "Carmen Emilia",
+        "surname": "Montes Zapata",
+        "display": "Carmen Emilia Montes Zapata"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P017",
+      "gramps_id": "I0017",
+      "primary_name": {
+        "given": "Carmen Rosa",
+        "surname": "Montes Zapata",
+        "display": "Carmen Rosa Montes Zapata"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P018",
+      "gramps_id": "I0018",
+      "primary_name": {
+        "given": "Alejandrina",
+        "surname": "Montes Zapata",
+        "display": "Alejandrina Montes Zapata"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "31/12/1915"
+        },
+        {
+          "type": "Death" ,
+          "date": "20/06/1990"
+        }
+      ],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P019",
+      "gramps_id": "I0019",
+      "primary_name": {
+        "given": "Virgelina",
+        "surname": "Cardona Montes",
+        "display": "Virgelina Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "0/10/1931"
+        },
+        {
+          "type": "Death",
+          "date": "06/01/1992"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P020",
+      "gramps_id": "I0020",
+      "primary_name": {
+        "given": "Inéslina",
+        "surname": "Cardona Montes",
+        "display": "Inéslina Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "18/03/1936"
+        },
+        {
+          "type": "Death",
+          "date": "2021"
+        }
+      ],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P021",
+      "gramps_id": "I0021",
+      "primary_name": {
+        "given": "Aura Rosa",
+        "surname": "Cardona Montes",
+        "display": "Aura Rosa Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "21/06/1944"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P022",
+      "gramps_id": "I0022",
+      "primary_name": {
+        "given": "Julia Rosa",
+        "surname": "Cardona Montes",
+        "display": "Julia Rosa Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "19/06/1946"
+        }
+      ],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P023",
+      "gramps_id": "I0023",
+      "primary_name": {
+        "given": "Mabelina",
+        "surname": "Cardona Montes",
+        "alias": "Isabelina",
+        "display": "Mabelina (Isabelina) Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "10/05/1948"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P024",
+      "gramps_id": "I0024",
+      "primary_name": {
+        "given": "Dioselina",
+        "surname": "Cardona Montes",
+        "display": "Dioselina Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "20/05/1950"
+        }
+      ],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P025",
+      "gramps_id": "I0025",
+      "primary_name": {
+        "given": "Fidelina",
+        "surname": "Cardona Montes",
+        "display": "Fidelina Cardona Montes"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "27/04/1957"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P026",
+      "gramps_id": "I0026",
+      "primary_name": {
+        "given": "José Fernando",
+        "surname": "Cardona Montes",
+        "display": "José Fernando Cardona Montes"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "16/03/1959"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P027",
+      "gramps_id": "I0027",
+      "primary_name": {
+        "given": "Melba Rosa",
+        "surname": "Cardona Montes",
+        "display": "Melba Rosa Cardona Montes"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [
+        {
+          "type": "estado",
+          "value": "bebé"
+        }
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P028",
+      "gramps_id": "I0028",
+      "primary_name": {
+        "given": "Juan Bautista",
+        "surname": "Cardona Montes",
+        "display": "Juan Bautista Cardona Montes"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [
+        {
+          "type": "estado",
+          "value": "bebé"
+        }
+      ],
+      "notes": [
+        "Murió tras comer unas bayas"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P029",
+      "gramps_id": "I0029",
+      "primary_name": {
+        "given": "Edna Eliana",
+        "surname": "Franco Cardona",
+        "display": "Edna Eliana Franco Cardona"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "04/11/1971"
+        },
+        {
+          "type": "Death",
+          "date": "28/02/2010"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P030",
+      "gramps_id": "I0030",
+      "primary_name": {
+        "given": "Isma Leicer",
+        "surname": "Franco Cardona",
+        "alias": "Cena Martínez",
+        "display": "Isma Leicer Franco Cardona"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "14/06/1973"
+        }
+      ],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P031",
+      "gramps_id": "I0031",
+      "primary_name": {
+        "given": "Norbyn Dery",
+        "surname": "Franco Cardona",
+        "display": "Norbyn Dery Franco Cardona"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "10/11/1974"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P032",
+      "gramps_id": "I0032",
+      "primary_name": {
+        "given": "Yorleny",
+        "surname": "Franco Cardona",
+        "display": "Yorleny Franco Cardona"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "15/02/1981"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P033",
+      "gramps_id": "I0033",
+      "primary_name": {
+        "given": "Marley Yised",
+        "surname": "Franco Cardona",
+        "display": "Marley Yised Franco Cardona"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "22/02/1993"
+        }
+      ],
+      "attributes": [],
+      "notes": [
+        "Apellido del padre: Leiva"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P034",
+      "gramps_id": "I0034",
+      "primary_name": {
+        "given": "María del Pilar",
+        "surname": "Marín Franco",
+        "display": "María del Pilar Marín Franco"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Murió en el nacimiento prematuro"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P035",
+      "gramps_id": "I0035",
+      "primary_name": {
+        "given": "María del Socorro",
+        "surname": "Marín Franco",
+        "display": "María del Socorro Marín Franco"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Murió en el nacimiento prematuro"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P036",
+      "gramps_id": "I0036",
+      "primary_name": {
+        "given": "Divian Yarledy",
+        "surname": "Marín Franco",
+        "display": "Divian Yarledy Marín Franco"
+      },
+      "gender": "F",
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Condición mental no desarrollada"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P037",
+      "gramps_id": "I0037",
+      "primary_name": {
+        "given": "Jhonander",
+        "surname": "Marín Franco",
+        "display": "Jhonander Marín Franco"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "14/06/1999"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P038",
+      "gramps_id": "I0038",
+      "primary_name": {
+        "given": "Ramón Alexis",
+        "surname": "Marín Franco",
+        "display": "Ramón Alexis Marín Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P039",
+      "gramps_id": "I0039",
+      "primary_name": {
+        "given": "Sergio Andrés",
+        "surname": "Majé Franco",
+        "display": "Sergio Andrés Majé Franco"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "16/09/1999"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P040",
+      "gramps_id": "I0040",
+      "primary_name": {
+        "given": "Adrián Felipe",
+        "surname": "Majé Franco",
+        "display": "Adrián Felipe Majé Franco"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "30/09/2003"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P041",
+      "gramps_id": "I0041",
+      "primary_name": {
+        "given": "Daniel Fernando",
+        "surname": "Leyton Franco",
+        "display": "Daniel Fernando Leyton Franco"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "09/04/1996"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P042",
+      "gramps_id": "I0042",
+      "primary_name": {
+        "given": "Danny Alejandra",
+        "surname": "Leyton Franco",
+        "display": "Danny Alejandra Leyton Franco"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "22/06/1998"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P043",
+      "gramps_id": "I0043",
+      "primary_name": {
+        "given": "Mauren Sofía",
+        "surname": "Leyton Franco",
+        "display": "Mauren Sofía Leyton Franco"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "08/10/2007"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P044",
+      "gramps_id": "I0044",
+      "primary_name": {
+        "given": "Paola",
+        "surname": "Castaño Franco",
+        "display": "Paola Castaño Franco"
+      },
+      "gender": "F",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "1996"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P045",
+      "gramps_id": "I0045",
+      "primary_name": {
+        "given": "Johan Stiven",
+        "surname": "Bohórquez Franco",
+        "display": "Johan Stiven Bohórquez Franco"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "low"
+    },
+    {
+      "id": "P046",
+      "gramps_id": "I0046",
+      "primary_name": {
+        "given": "Juan Pablo",
+        "surname": "Bohórquez Franco",
+        "display": "Juan Pablo Bohórquez Franco"
+      },
+      "gender": "M",
+      "events": [
+        {
+          "type": "Birth",
+          "date": "15/06/2010"
+        }
+      ],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "medium"
+    },
+    {
+      "id": "P047",
+      "gramps_id": "I0047",
+      "primary_name": {
+        "given": "Ramon Elías",
+        "surname": "Marín Nieto",
+        "display": "Ramon Elías Marín Nieto"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P048",
+      "gramps_id": "I0048",
+      "primary_name": {
+        "given": "Edilberto",
+        "surname": "Leyton Bermúdez",
+        "display": "Edilberto Leyton Bermúdez"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P049",
+      "gramps_id": "I0049",
+      "primary_name": {
+        "given": "Raul",
+        "surname": "Bohórquez",
+        "display": "Raul Bohórquez"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    },
+    {
+      "id": "P050",
+      "gramps_id": "I0050",
+      "primary_name": {
+        "given": "Arvey",
+        "surname": "Majé",
+        "display": "Arvey Majé"
+      },
+      "gender": "M",
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Padre: José Gabriel Bayona Palacios"
+      ],
+      "citation_refs": ["C001"],
+      "confidence": "high"
+    }
+  ],
+  "families": [
+    {
+      "id": "F001",
+      "gramps_id": "F0001",
+      "parent1_id": "P001",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P002",
+        "P003",
+        "P004",
+        "P005"
+      ],
+      "events": [],
+      "attributes": [
+        {
+          "type": "texto_visible",
+          "value": "9 hijos primeras nupcias"
+        }
+      ],
+      "notes": [
+        "La hoja solo muestra parte de la descendencia atribuida a esta unión."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F002",
+      "gramps_id": "F0002",
+      "parent1_id": "P002",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P006",
+        "P007",
+        "P009"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Se infiere maternidad/paternidad desde la estructura del árbol; el otro progenitor no es visible."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F003",
+      "gramps_id": "F0003",
+      "parent1_id": "P007",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P008"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F004",
+      "gramps_id": "F0004",
+      "parent1_id": "P009",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P010"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "La existencia de esta familia es plausible por la línea vertical y horizontal, pero la lectura es frágil."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "F005",
+      "gramps_id": "F0005",
+      "parent1_id": "P014",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P015"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "Se infiere maternidad desde la rama superior Montes."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F006",
+      "gramps_id": "F0006",
+      "parent1_id": "P016",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P017",
+        "P018"
+      ],
+      "events": [],
+      "attributes": [],
+      "places": [
+        "PL001"
+      ],
+      "notes": [
+        "Hay un texto al lado de la línea de pareja: 'Orito - Valle' u otra lectura parecida."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F007",
+      "gramps_id": "F0007",
+      "parent1_id": "P015",
+      "parent2_id": "P018",
+      "relationship_type": "marriage",
+      "children_ids": [
+        "P019",
+        "P020",
+        "P021",
+        "P022",
+        "P023",
+        "P024",
+        "P025",
+        "P026",
+        "P027",
+        "P028"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "El otro progenitor del grupo no se lee con seguridad."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F008",
+      "gramps_id": "F0008",
+      "parent1_id": "P009",
+      "parent2_id": "P024",
+      "relationship_type": "union",
+      "children_ids": [
+        "P029",
+        "P030",
+        "P031",
+        "P032"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "La pertenencia exacta de todo este bloque a Elsa Eliana no es segura; se conserva como hipótesis estructural."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "F009",
+      "gramps_id": "F0009",
+      "parent1_id": "P029",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P033"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F010",
+      "gramps_id": "F0010",
+      "parent1_id": "P029",
+      "parent2_id": "P047",
+      "relationship_type": "union",
+      "children_ids": [
+        "P034",
+        "P035",
+        "P036",
+        "P037",
+        "P038"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F011",
+      "gramps_id": "F0011",
+      "parent1_id": "P030",
+      "parent2_id": "P050",
+      "relationship_type": "union",
+      "children_ids": [
+        "P039",
+        "P040"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "El enlace visual entre Arvey Majé y este núcleo es fuerte, pero el orden exacto de progenitores se mantiene abierto."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F012",
+      "gramps_id": "F0012",
+      "parent1_id": "P031",
+      "parent2_id": "P048",
+      "relationship_type": "union",
+      "children_ids": [
+        "P041",
+        "P042",
+        "P043"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [
+        "La pertenencia de este bloque a Isma Leicer no es segura; se conserva como hipótesis estructural."
+      ],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "F013",
+      "gramps_id": "F0013",
+      "parent1_id": "P032",
+      "parent2_id": null,
+      "relationship_type": "unknown",
+      "children_ids": [
+        "P044"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "F014",
+      "gramps_id": "F0014",
+      "parent1_id": "P032",
+      "parent2_id": "P049",
+      "relationship_type": "union",
+      "children_ids": [
+        "P045",
+        "P046"
+      ],
+      "events": [],
+      "attributes": [],
+      "notes": [],
+      "citation_refs": [
+        "C001"
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# CSpell in VSCode
+.vscode/cspell.json
+
+# Node / Next.js
+node_modules
+.next
+
+# Local database artifacts
+storage/*.sqlite
+storage/*.sqlite-shm
+storage/*.sqlite-wal
+
+# Generated media derivatives
+storage/media/thumbs
