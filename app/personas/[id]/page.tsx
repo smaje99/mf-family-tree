@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ConfidencePill } from "@/components/confidence-pill";
 import { EmptyPanel } from "@/components/empty-panel";
 import { FamilyCard } from "@/components/family-card";
 import { PersonCard } from "@/components/person-card";
@@ -36,7 +35,6 @@ export default async function PersonDetailPage({
                 <p className="mt-3 text-base text-muted">Alias: {detail.person.alias}</p>
               ) : null}
             </div>
-            <ConfidencePill confidence={detail.person.confidence} />
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">

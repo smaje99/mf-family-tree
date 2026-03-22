@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ConfidencePill } from "@/components/confidence-pill";
 import { familyLabel, type FamilySummary } from "@/lib/family-tree";
 
 type FamilyCardProps = {
@@ -25,7 +24,6 @@ export function FamilyCard({ family }: FamilyCardProps) {
               {family.relationshipType ?? "Tipo de relación pendiente"}
             </p>
           </div>
-          <ConfidencePill confidence={family.confidence} />
         </div>
 
         <div className="space-y-2 text-sm text-muted">

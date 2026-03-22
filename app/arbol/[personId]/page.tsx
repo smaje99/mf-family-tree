@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ConfidencePill } from "@/components/confidence-pill";
 import { EmptyPanel } from "@/components/empty-panel";
 import { FamilyCard } from "@/components/family-card";
 import { PersonCard } from "@/components/person-card";
@@ -35,7 +34,6 @@ export default async function FocusedTreePage({
             </p>
           </div>
           <div className="flex flex-col items-end gap-3">
-            <ConfidencePill confidence={detail.person.confidence} />
             <Link
               href={`/personas/${detail.person.id}`}
               className="text-sm font-semibold text-brand-strong hover:text-brand"
@@ -97,7 +95,6 @@ export default async function FocusedTreePage({
                   <p className="mt-2 text-sm text-muted">Alias: {detail.person.alias}</p>
                 ) : null}
               </div>
-              <ConfidencePill confidence={detail.person.confidence} />
             </div>
 
             <div className="mt-6 grid gap-4">

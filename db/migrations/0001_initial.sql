@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS persons (
   alias TEXT,
   gender TEXT,
   is_living INTEGER NOT NULL DEFAULT 0,
-  confidence TEXT,
   summary TEXT,
   profile_photo_media_id TEXT,
   raw_json TEXT,
@@ -23,7 +22,6 @@ CREATE TABLE IF NOT EXISTS families (
   parent1_id TEXT,
   parent2_id TEXT,
   relationship_type TEXT,
-  confidence TEXT,
   notes_markdown TEXT,
   place_id TEXT,
   raw_json TEXT,
@@ -38,7 +36,6 @@ CREATE TABLE IF NOT EXISTS family_children (
   family_id TEXT NOT NULL,
   person_id TEXT NOT NULL,
   sort_order INTEGER,
-  confidence TEXT,
   PRIMARY KEY (family_id, person_id)
 );
 
@@ -139,7 +136,6 @@ CREATE TABLE IF NOT EXISTS citations (
   id TEXT PRIMARY KEY,
   source_id TEXT,
   page TEXT,
-  confidence TEXT,
   notes_markdown TEXT,
   raw_json TEXT
 );

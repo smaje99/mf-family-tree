@@ -7,7 +7,6 @@ type TopLevelNote = {
   id: string;
   type?: string;
   text?: string;
-  confidence?: string;
   citations?: string[];
 };
 
@@ -30,7 +29,6 @@ type Person = {
   notes?: string[];
   media_refs?: string[];
   citation_refs?: string[];
-  confidence?: string;
 };
 
 type Family = {
@@ -50,7 +48,6 @@ type Family = {
   notes?: string[];
   media_refs?: string[];
   citation_refs?: string[];
-  confidence?: string;
 };
 
 type Source = {
@@ -66,7 +63,6 @@ type Citation = {
   id: string;
   source_id?: string;
   page?: string;
-  confidence?: string;
   notes?: string[];
 };
 
@@ -82,7 +78,6 @@ type Place = {
   id: string;
   name: string;
   type?: string;
-  confidence?: string;
   notes?: string[];
   citations?: string[];
 };
@@ -155,16 +150,15 @@ try {
   const upsertPerson = sqlite.prepare(`
     INSERT OR REPLACE INTO persons (
       id, external_id, given_name, surname, display_name, alias, gender,
-      is_living, confidence, summary, profile_photo_media_id, raw_json,
-      created_at, updated_at
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      is_living, summary, profile_photo_media_id, raw_json, created_at, updated_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   const upsertFamily = sqlite.prepare(`
     INSERT OR REPLACE INTO families (
       id, external_id, parent1_id, parent2_id, relationship_type,
-      confidence, notes_markdown, place_id, raw_json, created_at, updated_at
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      notes_markdown, place_id, raw_json, created_at, updated_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   const upsertEvent = sqlite.prepare(`
@@ -176,8 +170,8 @@ try {
   `);
 
   const upsertFamilyChild = sqlite.prepare(`
-    INSERT OR REPLACE INTO family_children (family_id, person_id, sort_order, confidence)
-    VALUES (?, ?, ?, ?)
+    INSERT OR REPLACE INTO family_children (family_id, person_id, sort_order)
+    VALUES (?, ?, ?)
   `);
 
   const upsertNote = sqlite.prepare(`
@@ -191,8 +185,8 @@ try {
   `);
 
   const upsertCitation = sqlite.prepare(`
-    INSERT OR REPLACE INTO citations (id, source_id, page, confidence, notes_markdown, raw_json)
-    VALUES (?, ?, ?, ?, ?, ?)
+    INSERT OR REPLACE INTO citations (id, source_id, page, notes_markdown, raw_json)
+    VALUES (?, ?, ?, ?, ?)
   `);
 
   const upsertEntityCitation = sqlite.prepare(`
@@ -258,7 +252,6 @@ try {
         citation.id,
         citation.source_id ?? null,
         citation.page ?? null,
-        citation.confidence ?? null,
         joinLines(citation.notes) ?? null,
         toJson(citation)
       );
@@ -324,7 +317,6 @@ try {
         person.primary_name?.alias ?? null,
         person.gender ?? null,
         hasDeathEvent ? 0 : 1,
-        person.confidence ?? null,
         null,
         person.media_refs?.[0] ?? null,
         toJson(person),
@@ -382,7 +374,6 @@ try {
         family.parent1_id ?? null,
         family.parent2_id ?? null,
         family.relationship_type ?? null,
-        family.confidence ?? null,
         joinLines(family.notes) ?? null,
         family.places?.[0] ?? null,
         toJson(family),
@@ -391,7 +382,7 @@ try {
       );
 
       (family.children_ids ?? []).forEach((childId, index) => {
-        upsertFamilyChild.run(family.id, childId, index + 1, family.confidence ?? null);
+        upsertFamilyChild.run(family.id, childId, index + 1);
       });
 
       (family.events ?? []).forEach((event, index) => {

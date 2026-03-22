@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ConfidencePill } from "@/components/confidence-pill";
 import { EmptyPanel } from "@/components/empty-panel";
 import { PersonCard } from "@/components/person-card";
 import { familyLabel, getFamilyDetail } from "@/lib/family-tree";
@@ -57,7 +56,6 @@ export default async function FamilyDetailPage({
                 toda la descendencia vinculada en una sola rama familiar legible.
               </p>
             </div>
-            <ConfidencePill confidence={detail.family.confidence} />
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">

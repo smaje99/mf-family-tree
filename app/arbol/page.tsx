@@ -104,30 +104,30 @@ export default function TreePage() {
       <section className="grid gap-6 xl:grid-cols-[1fr_1fr_0.9fr]">
         <div className="rounded-[1.8rem] border border-line bg-white/65 p-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand">
-            Cola de revisión
+            Panorama del árbol
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <article className="rounded-2xl border border-line bg-paper-strong/75 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-                Personas con baja confianza
+                Personas con ramas activas
               </p>
-              <p className="mt-2 font-display text-4xl text-ink">{overview.lowConfidencePeople.length}</p>
+              <p className="mt-2 font-display text-4xl text-ink">{overview.entryPeople.length}</p>
             </article>
             <article className="rounded-2xl border border-line bg-paper-strong/75 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-                Familias con baja confianza
+                Ramas familiares
               </p>
-              <p className="mt-2 font-display text-4xl text-ink">{overview.lowConfidenceFamilies.length}</p>
+              <p className="mt-2 font-display text-4xl text-ink">{overview.families.length}</p>
             </article>
           </div>
         </div>
 
         <div className="rounded-[1.8rem] border border-line bg-white/65 p-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand">
-            Personas para revisar
+            Personas destacadas
           </p>
           <div className="mt-4 space-y-3">
-            {overview.lowConfidencePeople.map((person) => (
+            {overview.entryPeople.slice(0, 8).map((person) => (
               <Link
                 key={person.id}
                 href={`/personas/${person.id}`}

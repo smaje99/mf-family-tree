@@ -5,7 +5,6 @@ export type PersonCardData = {
   id: string;
   displayName: string;
   alias: string | null;
-  confidence: string | null;
   birthDate: string | null;
   deathDate: string | null;
   familyCount: number;
@@ -23,7 +22,6 @@ export type FamilySummary = {
   parent2Id: string | null;
   parent2Name: string | null;
   relationshipType: string | null;
-  confidence: string | null;
   placeName: string | null;
   childrenCount: number;
   notesMarkdown: string | null;
@@ -37,7 +35,6 @@ export type NoteItem = {
 export type CitationItem = {
   id: string;
   page: string | null;
-  confidence: string | null;
   notesMarkdown: string | null;
   sourceId: string | null;
   sourceTitle: string | null;
@@ -87,8 +84,6 @@ export type TreeOverviewData = {
   entryPeople: PersonCardData[];
   householdPeople: PersonCardData[];
   families: FamilySummary[];
-  lowConfidencePeople: PersonCardData[];
-  lowConfidenceFamilies: FamilySummary[];
   globalNotes: NoteItem[];
 };
 
@@ -168,7 +163,6 @@ function basePersonSelect() {
       p.id,
       p.display_name AS displayName,
       p.alias,
-      p.confidence,
       p.gender,
       p.is_living AS isLiving,
       (
@@ -222,7 +216,6 @@ function familySelect() {
       f.parent2_id AS parent2Id,
       p2.display_name AS parent2Name,
       f.relationship_type AS relationshipType,
-      f.confidence,
       pl.name AS placeName,
       f.notes_markdown AS notesMarkdown,
       (
@@ -260,7 +253,6 @@ function mapPersonRow(row: Record<string, unknown>): PersonCardData {
     id,
     displayName: readOptionalString(row.displayName) ?? id,
     alias: readOptionalString(row.alias),
-    confidence: readOptionalString(row.confidence),
     birthDate: readOptionalString(row.birthDate),
     deathDate: readOptionalString(row.deathDate),
     familyCount: readNumber(row.familyCount),
@@ -282,7 +274,6 @@ function mapFamilyRow(row: Record<string, unknown>): FamilySummary {
     parent2Id: readOptionalString(row.parent2Id),
     parent2Name: readOptionalString(row.parent2Name),
     relationshipType: readOptionalString(row.relationshipType),
-    confidence: readOptionalString(row.confidence),
     placeName: readOptionalString(row.placeName),
     childrenCount: readNumber(row.childrenCount),
     notesMarkdown: readOptionalString(row.notesMarkdown)
@@ -317,7 +308,6 @@ function getCitationsForEntity(
         SELECT
           c.id,
           c.page,
-          c.confidence,
           c.notes_markdown AS notesMarkdown,
           s.id AS sourceId,
           s.title AS sourceTitle,
@@ -601,8 +591,6 @@ export function getTreeOverviewData(): TreeOverviewData {
       entryPeople: [],
       householdPeople: [],
       families: [],
-      lowConfidencePeople: [],
-      lowConfidenceFamilies: [],
       globalNotes: []
     },
     (sqlite) => {
@@ -639,38 +627,12 @@ export function getTreeOverviewData(): TreeOverviewData {
         .all()
         .map((row) => mapFamilyRow(row as Record<string, unknown>));
 
-      const lowConfidencePeople = sqlite
-        .prepare(
-          `
-            ${basePersonSelect()}
-            WHERE p.confidence = 'low'
-            ORDER BY p.display_name
-            LIMIT 8
-          `
-        )
-        .all()
-        .map((row) => mapPersonRow(row as Record<string, unknown>));
-
-      const lowConfidenceFamilies = sqlite
-        .prepare(
-          `
-            ${familySelect()}
-            WHERE f.confidence = 'low'
-            ORDER BY f.id
-            LIMIT 8
-          `
-        )
-        .all()
-        .map((row) => mapFamilyRow(row as Record<string, unknown>));
-
       return {
         isReady: true,
         focusPersonId: householdPeople[0]?.id ?? entryPeople[0]?.id ?? null,
         entryPeople,
         householdPeople,
         families,
-        lowConfidencePeople,
-        lowConfidenceFamilies,
         globalNotes: getNotesForEntity(sqlite, "global", "global")
       };
     }

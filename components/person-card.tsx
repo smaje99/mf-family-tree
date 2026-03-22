@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ConfidencePill } from "@/components/confidence-pill";
 import { formatLifeSpan, type PersonCardData } from "@/lib/family-tree";
 
 type PersonCardProps = {
@@ -28,7 +27,6 @@ export function PersonCard({ person, href }: PersonCardProps) {
               <p className="text-sm text-muted">Alias: {person.alias}</p>
             ) : null}
           </div>
-          <ConfidencePill confidence={person.confidence} />
         </div>
 
         <div className="space-y-2 text-sm text-muted">

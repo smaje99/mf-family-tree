@@ -11,7 +11,6 @@ export const persons = sqliteTable(
     alias: text("alias"),
     gender: text("gender"),
     isLiving: integer("is_living").notNull().default(0),
-    confidence: text("confidence"),
     summary: text("summary"),
     profilePhotoMediaId: text("profile_photo_media_id"),
     rawJson: text("raw_json"),
@@ -31,7 +30,6 @@ export const families = sqliteTable(
     parent1Id: text("parent1_id"),
     parent2Id: text("parent2_id"),
     relationshipType: text("relationship_type"),
-    confidence: text("confidence"),
     notesMarkdown: text("notes_markdown"),
     placeId: text("place_id"),
     rawJson: text("raw_json"),
@@ -49,8 +47,7 @@ export const familyChildren = sqliteTable(
   {
     familyId: text("family_id").notNull(),
     personId: text("person_id").notNull(),
-    sortOrder: integer("sort_order"),
-    confidence: text("confidence")
+    sortOrder: integer("sort_order")
   },
   (table) => ({
     pk: primaryKey({ columns: [table.familyId, table.personId] })
@@ -178,7 +175,6 @@ export const citations = sqliteTable("citations", {
   id: text("id").primaryKey(),
   sourceId: text("source_id"),
   page: text("page"),
-  confidence: text("confidence"),
   notesMarkdown: text("notes_markdown"),
   rawJson: text("raw_json")
 });
