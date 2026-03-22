@@ -4,6 +4,7 @@
 # Node / Next.js
 node_modules
 .next
+tsconfig.tsbuildinfo
 
 # Local database artifacts
 storage/*.sqlite
