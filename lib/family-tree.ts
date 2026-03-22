@@ -108,6 +108,13 @@ export type FamilyDetailData = {
   media: MediaItem[];
 };
 
+type ParsedGenealogyDate = {
+  year: number;
+  month: number | null;
+  day: number | null;
+  precision: "year" | "month" | "day";
+};
+
 function withDatabase<T>(fallback: T, callback: (sqlite: ReturnType<typeof openSqliteDatabase>) => T) {
   const databasePath = getDatabasePath();
 
@@ -498,6 +505,112 @@ export function formatLifeSpan(birthDate: string | null, deathDate: string | nul
   }
 
   return `Murió ${deathDate}`;
+}
+
+function parseGenealogyDate(rawDate: string | null) {
+  if (!rawDate) {
+    return null;
+  }
+
+  const trimmed = rawDate.trim();
+
+  if (/^\d{4}$/.test(trimmed)) {
+    return {
+      year: Number(trimmed),
+      month: null,
+      day: null,
+      precision: "year"
+    } satisfies ParsedGenealogyDate;
+  }
+
+  const match = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(trimmed);
+
+  if (!match) {
+    return null;
+  }
+
+  const day = Number(match[1]);
+  const month = Number(match[2]);
+  const year = Number(match[3]);
+
+  if (year < 1 || month < 0 || month > 12 || day < 0 || day > 31) {
+    return null;
+  }
+
+  if (month === 0) {
+    return {
+      year,
+      month: null,
+      day: null,
+      precision: "year"
+    } satisfies ParsedGenealogyDate;
+  }
+
+  if (day === 0) {
+    return {
+      year,
+      month,
+      day: null,
+      precision: "month"
+    } satisfies ParsedGenealogyDate;
+  }
+
+  return {
+    year,
+    month,
+    day,
+    precision: "day"
+  } satisfies ParsedGenealogyDate;
+}
+
+function getTodayAsParsedDate() {
+  const today = new Date();
+
+  return {
+    year: today.getFullYear(),
+    month: today.getMonth() + 1,
+    day: today.getDate(),
+    precision: "day"
+  } satisfies ParsedGenealogyDate;
+}
+
+export function formatAge(birthDate: string | null, deathDate: string | null) {
+  const birth = parseGenealogyDate(birthDate);
+  const reference = deathDate ? parseGenealogyDate(deathDate) : getTodayAsParsedDate();
+
+  if (!birth || !reference) {
+    return null;
+  }
+
+  let years = reference.year - birth.year;
+
+  const hasBirthMonth = birth.month !== null;
+  const hasReferenceMonth = reference.month !== null;
+  const hasBirthDay = birth.day !== null;
+  const hasReferenceDay = reference.day !== null;
+
+  if (hasBirthMonth && hasReferenceMonth) {
+    if (reference.month < birth.month) {
+      years -= 1;
+    } else if (
+      reference.month === birth.month &&
+      hasBirthDay &&
+      hasReferenceDay &&
+      reference.day < birth.day
+    ) {
+      years -= 1;
+    }
+  }
+
+  if (years < 0) {
+    return null;
+  }
+
+  const exact = birth.precision === "day" && reference.precision === "day";
+  const prefix = exact ? "" : "Aprox. ";
+  const suffix = deathDate ? " al fallecer" : "";
+
+  return `${prefix}${years} años${suffix}`;
 }
 
 export function familyLabel(family: FamilySummary) {

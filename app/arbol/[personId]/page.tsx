@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { EmptyPanel } from "@/components/empty-panel";
 import { FamilyCard } from "@/components/family-card";
 import { PersonCard } from "@/components/person-card";
-import { formatLifeSpan, getPersonDetail } from "@/lib/family-tree";
+import { formatAge, formatLifeSpan, getPersonDetail } from "@/lib/family-tree";
 
 export default async function FocusedTreePage({
   params
@@ -16,6 +16,8 @@ export default async function FocusedTreePage({
   if (!detail) {
     notFound();
   }
+
+  const age = formatAge(detail.person.birthDate, detail.person.deathDate);
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
@@ -105,6 +107,12 @@ export default async function FocusedTreePage({
                 <p className="mt-2 text-sm leading-6 text-ink">
                   {formatLifeSpan(detail.person.birthDate, detail.person.deathDate) ?? "Cronología abierta"}
                 </p>
+              </div>
+              <div className="rounded-[1.4rem] border border-brand/10 bg-white/65 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                  Edad
+                </p>
+                <p className="mt-2 text-sm leading-6 text-ink">{age ?? "No calculable todavía"}</p>
               </div>
               <div className="rounded-[1.4rem] border border-brand/10 bg-white/65 p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">

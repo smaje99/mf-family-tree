@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { EmptyPanel } from "@/components/empty-panel";
 import { FamilyCard } from "@/components/family-card";
 import { PersonCard } from "@/components/person-card";
-import { formatLifeSpan, getPersonDetail } from "@/lib/family-tree";
+import { formatAge, formatLifeSpan, getPersonDetail } from "@/lib/family-tree";
 
 export default async function PersonDetailPage({
   params
@@ -18,6 +18,7 @@ export default async function PersonDetailPage({
   }
 
   const lifeSpan = formatLifeSpan(detail.person.birthDate, detail.person.deathDate);
+  const age = formatAge(detail.person.birthDate, detail.person.deathDate);
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
@@ -37,12 +38,18 @@ export default async function PersonDetailPage({
             </div>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-4">
             <article className="rounded-[1.4rem] border border-line bg-white/65 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                 Cronología
               </p>
               <p className="mt-2 text-sm leading-6 text-ink">{lifeSpan ?? "Cronología abierta"}</p>
+            </article>
+            <article className="rounded-[1.4rem] border border-line bg-white/65 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                Edad
+              </p>
+              <p className="mt-2 text-sm leading-6 text-ink">{age ?? "No calculable todavía"}</p>
             </article>
             <article className="rounded-[1.4rem] border border-line bg-white/65 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">

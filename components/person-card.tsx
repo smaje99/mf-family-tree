@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatLifeSpan, type PersonCardData } from "@/lib/family-tree";
+import { formatAge, formatLifeSpan, type PersonCardData } from "@/lib/family-tree";
 
 type PersonCardProps = {
   readonly person: PersonCardData;
@@ -8,11 +8,12 @@ type PersonCardProps = {
 
 export function PersonCard({ person, href }: PersonCardProps) {
   const lifeSpan = formatLifeSpan(person.birthDate, person.deathDate);
+  const age = formatAge(person.birthDate, person.deathDate);
 
   return (
     <Link
       href={href ?? `/personas/${person.id}`}
-      className="group flex h-full flex-col justify-between rounded-[1.6rem] border border-line bg-paper-strong/90 p-5 shadow-[0_18px_40px_rgb(74_45_22_/_0.06)] transition duration-200 hover:-translate-y-0.5 hover:border-brand/20 hover:shadow-[0_24px_50px_rgb(74_45_22_/_0.1)]"
+      className="group flex h-full flex-col justify-between rounded-[1.6rem] border border-line bg-paper-strong/90 p-5 shadow-[0_18px_40px_rgb(74_45_22/0.06)] transition duration-200 hover:-translate-y-0.5 hover:border-brand/20 hover:shadow-[0_24px_50px_rgb(74_45_22/0.1)]"
     >
       <div className="space-y-4">
         <div className="flex items-start justify-between gap-3">
@@ -31,6 +32,7 @@ export function PersonCard({ person, href }: PersonCardProps) {
 
         <div className="space-y-2 text-sm text-muted">
           <p>{lifeSpan ?? "Cronología aún abierta"}</p>
+          {age ? <p>{age}</p> : null}
           <p>
             {person.parentFamilyCount} rama
             {person.parentFamilyCount === 1 ? "" : "s"} de origen y {person.familyCount} nodo
